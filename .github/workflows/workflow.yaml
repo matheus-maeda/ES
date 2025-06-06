@@ -1,0 +1,30 @@
+#Nome do meu workflow
+name: Continuos Integration
+
+#Quando ele será executado, nesse caso em todo PR e Push
+on: [pull_request, push]
+
+#Quais "trabalhos" serão executados
+jobs:
+  #Nome do meu trabalho
+  continuos-integration:
+    #Ambiente que ele irá rodar, no caso a versão mais nova do ubuntu
+    runs-on: ubuntu-latest
+
+    #Passo a passo do que será realizado
+    steps:
+      #Configurando ambiente, utilizando actions prontas para pegar o repositório e configurando o node.
+      - uses: actions/checkout@v3
+      - name: Using Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.
+      - name: run install, build and test
+      #Início do meu pipline, descrito por |
+        run: |
+          npm install
+          npm run build 
+          npm run test
+
+#Modificando .yaml para demonstrar
+#Em caso de erro em qualquer parte, ele irá marcar com um X no github.
