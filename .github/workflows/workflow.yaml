@@ -27,4 +27,5 @@ jobs:
           npm run test
 
 #Mexendo no .yaml para demonstrar melhor
+#Aceita porfavor mano, agora tá certo
 #Em caso de erro em qualquer parte, ele irá marcar com um X no github.
